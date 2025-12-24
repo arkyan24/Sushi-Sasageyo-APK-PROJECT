@@ -5,8 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.proyek_pmob.dineinresto.databinding.ItemMenuSushiBinding
 
-class MenuSushiAdapter(private val list: List<MenuSushi>) :
-    RecyclerView.Adapter<MenuSushiAdapter.ViewHolder>() {
+class MenuSushiAdapter(
+    private val list: List<MenuSushi>,
+    private val onItemClick: ((MenuSushi) -> Unit)? = null
+) : RecyclerView.Adapter<MenuSushiAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemMenuSushiBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -25,6 +27,10 @@ class MenuSushiAdapter(private val list: List<MenuSushi>) :
         holder.binding.imgSushi.setImageResource(menu.imageRes)
         holder.binding.txtName.text = menu.name
         holder.binding.txtPrice.text = menu.price
+
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(menu)
+        }
     }
 
     override fun getItemCount(): Int = list.size

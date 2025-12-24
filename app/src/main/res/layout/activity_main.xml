@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="#F5F6FA">
 
-    <!-- ================= CONTENT ================= -->
     <ScrollView
         android:id="@+id/scrollContent"
         android:layout_width="match_parent"
@@ -19,16 +18,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- Header -->
             <TextView
                 android:text="Hello!\nGweeny Addams"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:textColor="#000000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <!-- Search -->
             <EditText
+                android:id="@+id/etSearch"
                 android:hint="Search food..."
                 android:layout_marginTop="16dp"
                 android:background="@drawable/rounded_bg"
@@ -36,16 +35,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <!-- Order List -->
+            <TextView
+                android:text="Categories"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:layout_marginTop="24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <!-- Grid Categories -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCategories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:nestedScrollingEnabled="false"/>
+
             <TextView
                 android:text="Order List"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:layout_marginTop="20dp"
+                android:textColor="#000000"
+                android:layout_marginTop="24dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <!-- Selected order (horizontal) -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSelectedOrder"
                 android:layout_width="match_parent"
@@ -53,31 +68,9 @@
                 android:layout_marginTop="8dp"
                 android:orientation="horizontal"/>
 
-            <!-- Menu Title -->
-            <TextView
-                android:text="Sushi Menu"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:layout_marginTop="24dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <!-- Sushi Menu Recycler -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvSushiMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"/>
-
-            <!-- Spacer -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="80dp"/>
-
         </LinearLayout>
     </ScrollView>
 
-    <!-- ================= BOTTOM ORDER BAR ================= -->
     <LinearLayout
         android:id="@+id/layoutOrderBar"
         android:layout_width="match_parent"
@@ -118,7 +111,7 @@
 
         <TextView
             android:id="@+id/txtTotalPrice"
-            android:text="13.600"
+            android:text="Rp 25.000"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             android:textSize="16sp"
